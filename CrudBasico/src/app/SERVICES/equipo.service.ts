@@ -20,6 +20,35 @@ export class EquipoService {
   getUnEquipo(id:string){
     return this.http.get(this.url+'/'+id);
   }
+
+
+// agregar equipo 
+
+addEquipo(equipo:any)
+{
+  return this.http.post(this.url, equipo);
 }
 
 
+//eimminar
+
+deleteEquipo(id:string){
+
+  return this.http.delete(this.url+'/'+id);
+
+}
+
+//modificar equipo
+
+editEquipo(id:string, equipo:Equipo){
+  return this.http.put(this.url+'/'+id, equipo);
+}
+
+
+}
+
+export interface Equipo{
+  id_equipo?:string;
+  nombre?:string;
+  logo?:string;
+}
